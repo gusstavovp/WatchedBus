@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Scrumban Manager</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <div class="login-logo">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </div>
+                <h1>Scrumban Manager</h1>
+                <p>Gerencie projetos ágeis com facilidade</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Nome de Usuário</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="Digite seu usuário"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Digite sua senha"
+                        required
+                    >
+                </div>
+
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Lembrar-me neste dispositivo</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    Entrar
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p>Não tem conta? <a href="#" onclick="Auth.showRegister(event)">Criar conta</a></p>
+                <p><a href="#" onclick="Auth.showReset(event)">Esqueceu sua senha?</a></p>
+            </div>
+
+            <div id="loginMessage" class="login-message"></div>
+        </div>
+
+        <!-- Modal para registro -->
+        <div class="modal-overlay" id="registerModal" style="display:none;">
+            <div class="modal modal-register">
+                <div class="modal-header">
+                    <h3>Criar Conta</h3>
+                    <button class="btn-icon" onclick="Auth.closeRegister()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <form id="registerForm" class="form-content">
+                    <div class="form-group">
+                        <label for="regUsername">Nome de Usuário</label>
+                        <input type="text" id="regUsername" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email</label>
+                        <input type="email" id="regEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Senha</label>
+                        <input type="password" id="regPassword" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPasswordConfirm">Confirmar Senha</label>
+                        <input type="password" id="regPasswordConfirm" name="passwordConfirm" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Criar Conta
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils/Storage.js"></script>
+    <script src="js/Auth.js"></script>
+</body>
+</html>

@@ -1,2 +1,0 @@
-# WatchedBus
-Gereciador
